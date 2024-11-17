@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 20px 0;
   padding: 20px;
   background: #e8f5e9;
   border-radius: 15px;
@@ -123,9 +122,20 @@
   margin-top: 20px;
 }
 
-.reset-button,
+.reset-button{
+  background: #8AD47E;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .back-button {
-  background: #37474f;
+  background: #54DDE8;
   color: white;
   border: none;
   border-radius: 15px;

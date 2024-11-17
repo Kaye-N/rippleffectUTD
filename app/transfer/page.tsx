@@ -38,6 +38,7 @@ const Transfer: React.FC = () => {
       <div className="content-background">
 
         <div className="center">
+
           <form className="transfer-form" onSubmit={handleTransfer}>
             <div className="form-group">
               <label htmlFor="recipient">Recipient</label>
@@ -71,8 +72,13 @@ const Transfer: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
-            <button type="submit" className="transfer-button">Transfer</button>
+
+            {/* Centered Button */}
+            <div className="button-group">
+              <button type="submit" className="transfer-button">Transfer</button>
+            </div>
           </form>
+
           <div className="back-link">
             <Link href="/">
               <button className="back-button">Back to Dashboard</button>

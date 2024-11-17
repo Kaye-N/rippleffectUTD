@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,23 +13,28 @@ body {
     height: 100%;
 }
 
+/* Main Container */
 .box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Ensure the box stretches to the full height of the viewport */
+    min-height: 100vh;
+    /* Ensure the box stretches to the full height of the viewport */
     background: linear-gradient(180deg, rgb(10, 150, 150), rgb(0, 150, 255));
-    background-size: cover; /* Stretch the background image */
+    background-size: cover;
+    /* Stretch the background image */
     background-repeat: no-repeat;
 }
 
 main {
     width: 100%;
-    margin-top: 30vh; /* Push the main content below the header */
+    margin-top: 30vh;
+    /* Push the main content below the header */
 }
 
+/* Header Styles */
 .header {
     position: fixed;
     top: 0;
@@ -43,6 +49,51 @@ main {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo-container {
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.logo {
+    width: 100px; /* Adjust the width to make the logo smaller */
+    margin-left: 10px;
+    height: auto;
+    border: 2px black solid;
+    border-radius: 15px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    background: #FFFAEB;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown-item {
+    background: #dc3545;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: left;
+    font-size: 1em;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #bd2130;
     color: white;
 }
 
@@ -63,93 +114,95 @@ main {
     text-align: center;
 }
 
-.sign-out {
-    margin-left: auto;
-    margin-right: 20px;
-    padding: 10px 50px;
-    background: #e26667;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.sign-out:hover {
-    background: #cc0000;
-}
-
-.dashboard {
-    margin: 20px;
+/* Balance and Budget Section */
+.balance-budget-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
     padding: 20px;
-    /* background: red; */
+    border-radius: 10px;
+}
+
+.balance-box,
+.budget-box {
+    flex: 1 1 45%;
+    max-width: 50%;
+    /* Ensures equal widths */
+    padding: 20px;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1),
-            rgba(0, 0, 0, 0.1)),
-        url("/img2.png");
-    /* background-image: url(/img2.png); */
-    background-size: 105% auto;
-    /* Stretches horizontally across the width */
-    background-position: center calc(60%);
-    /* Keeps the vertical adjustment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    /* Make it relative for the overlay positioning */
+
+    /* Background Image Styling */
+    background-image: url("/img.jpg");
+    background-size: 150% auto;
+    background-position: center 5%;
     background-repeat: no-repeat;
 }
 
-.balance-box {
-    text-align: center;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+/* Semi-Transparent Overlay */
+.balance-box::before,
+.budget-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    /* White overlay with 60% opacity */
+    z-index: 1;
+    /* Ensure the overlay appears above the background image */
+    border-radius: inherit;
+    /* Match the parent box's border radius */
 }
 
-.balance-box h2 {
-    font-size: 2.5em;
-    margin: 0;
+/* Ensure content stays above the overlay */
+.balance-box>*,
+.budget-box>* {
+    position: relative;
+    z-index: 2;
+    /* Bring content above the overlay */
+}
+
+.balance-box h2,
+.budget-box h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
 
 .balance-box p {
     margin: 5px 0;
 }
 
-/* @keyframes pulseLoop {
-  
-    0%,
-    100% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(1.1);
-    }
-  } */
-
 .inspiration {
     font-style: italic;
-    font-size: 1.5em;
-    animation: pulseLoop 1.5s infinite ease-in-out;
+    font-size: 1.2em;
 }
 
-.badget {
-    margin: 20px;
-    padding: 75px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #F7CE79;
-    background-size: 105% auto;
-    background-position: center calc(60%);
-    background-repeat: no-repeat;
+.chart-legend-container {
+    width: 100%;
+    /* Ensure it takes up full width */
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
-.badget-box {
-    text-align: center;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.budget-box .chart-legend-container canvas {
+    max-width: 100%;
+    /* Make sure the canvas doesn't overflow */
 }
 
+/* Actions Section */
 .actions {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -163,17 +216,10 @@ main {
 .action-box {
     display: flex;
     flex-direction: column;
-    /* Stack elements vertically */
     justify-content: space-between;
-    /* Push button to the bottom */
     align-items: stretch;
-    /* Ensure full-width child elements */
     width: 100%;
-    /* Full width of the grid column */
     height: 200px;
-    /* Fixed height */
-    background-size: cover;
-    background-position: center;
     padding: 15px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -190,42 +236,25 @@ main {
 
 .action-box button {
     margin-top: auto;
-    /* Pushes the button to the bottom */
     width: 100%;
-    /* Ensures the button spans the full width */
     padding: 15px 0;
-    /* Adjust padding for proper height */
     font-size: 1.2em;
-    /* Larger text for better visibility */
     color: white;
-    /* Text color */
-    background: #54DDE8;
+    background: #54dde8;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    /* Smooth hover effect */
 }
 
 .action-box button:hover {
     background: #45c3cc;
-    /* Slightly darker hover color */
     transform: scale(1.02);
-    /* Subtle hover zoom */
 }
 
-.action-box:nth-child(1) {
-    background-color: #163950;
-}
-
-.action-box:nth-child(2) {
-    background-color: #163950;
-}
-
-.action-box:nth-child(3) {
-    background-color: #163950;
-}
-
+.action-box:nth-child(1),
+.action-box:nth-child(2),
+.action-box:nth-child(3),
 .action-box:nth-child(4) {
     background-color: #163950;
 }
