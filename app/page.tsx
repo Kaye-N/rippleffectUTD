@@ -9,7 +9,7 @@ import outputs from "@/amplify_ouputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
 import "./app.css";
-import Home from "../home/page";
+import Home from "./home/page";
 
 Amplify.configure(outputs);
 
