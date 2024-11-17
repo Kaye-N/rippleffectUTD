@@ -8,7 +8,7 @@ import type { Schema } from "@/amplify/data/resource";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-import "./app.css";
+import "./page.module.css";
 import Home from "./home/page";
 
 Amplify.configure(outputs);

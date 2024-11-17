@@ -26,61 +26,49 @@ const Transfer: React.FC = () => {
 
   return (
     <main className="transfer-page">
-      {/* Top Banner */}
+      {/* Banner Section */}
       <header className="banner">
         <h1>Transfer Funds</h1>
         <p>Securely transfer money to anyone, anywhere.</p>
       </header>
 
-      {/* Transfer Form Section */}
+      {/* Form Section */}
       <div className="content-background">
-        <div className="transfer-form">
-          <form onSubmit={handleTransfer}>
-            <div className="form-group">
-              <label htmlFor="recipient">Recipient</label>
-              <input
-                type="text"
-                id="recipient"
-                name="recipient"
-                placeholder="Enter recipient name or email"
-                value={recipient}
-                onChange={(e) => setRecipient(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="amount">Amount</label>
-              <input
-                type="number"
-                id="amount"
-                name="amount"
-                placeholder="Enter amount to transfer"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                required
-                min="1"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">Message (Optional)</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Add a note to the recipient"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-            </div>
-
-            <button type="submit" className="transfer-button">
-              Transfer
-            </button>
-          </form>
-        </div>
-
-        {/* Back to Dashboard Button */}
+        <form className="transfer-form" onSubmit={handleTransfer}>
+          <div className="form-group">
+            <label htmlFor="recipient">Recipient</label>
+            <input
+              type="text"
+              id="recipient"
+              placeholder="Enter recipient name or email"
+              value={recipient}
+              onChange={(e) => setRecipient(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="number"
+              id="amount"
+              placeholder="Enter amount to transfer"
+              value={amount}
+              onChange={(e) => setAmount(Number(e.target.value))}
+              required
+              min="1"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message (Optional)</label>
+            <textarea
+              id="message"
+              placeholder="Add a note to the recipient"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
+          <button type="submit" className="transfer-button">Transfer</button>
+        </form>
         <div className="back-link">
           <Link href="/">
             <button className="back-button">Back to Dashboard</button>
@@ -88,6 +76,7 @@ const Transfer: React.FC = () => {
         </div>
       </div>
     </main>
+
   );
 };
 
