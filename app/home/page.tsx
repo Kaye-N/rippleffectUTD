@@ -9,12 +9,12 @@ export default function Home() {
 
   return (
     <main>
-      <header className="container">
+      <div className="container">
         <div className="content">
           <h1>Welcome to Lotus</h1>
           <p>Smart savings made simple</p>
         </div>
-      </header>
+      </div>
 
       <div className="dashboard">
         <div className="balance-box">
@@ -22,25 +22,41 @@ export default function Home() {
           <p>$5,000.00</p>
           <p className="inspiration">"The best way to save money is to earn it."</p>
         </div>
+      </div>
 
-        <div className="actions">
+      <div className="actions">
+        
+        <div className="action-box">
+          <p>Payment here</p>
           <Link href="/pay">
             <button>Pay</button>
           </Link>
+        </div>
+
+        <div className="action-box">
+          <p>Transfer funds</p>
           <Link href="/transfer">
             <button>Transfer</button>
           </Link>
+        </div>
+
+        <div className="action-box">
+          <p>Investment options</p>
           <Link href="/invest">
             <button>Invest</button>
           </Link>
+        </div>
+
+        <div className="action-box">
+          <p>Fun and rewards</p>
           <Link href="/game">
             <button>Game</button>
           </Link>
         </div>
-
       </div>
 
       <button className="sign-out" onClick={signOut}>Sign Out</button>
+
     </main>
   );
 }
