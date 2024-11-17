@@ -11,7 +11,8 @@ export default function Invest() {
   };
 
   return (
-    <main>
+    <div className="invest-containter"> 
+
       <header className="banner">
         <h1>Investment Options</h1>
         <p>Grow your wealth with our tailored investment plans.</p>
@@ -20,16 +21,30 @@ export default function Invest() {
       <div className="investment-options">
         <div className="plan">
           <h3>Plan A</h3>
+          <p>40% Apple, Microsoft, Johnson & Johnson</p>
+          <p>30% Bond ETFs</p>
+          <p>20% dividend ETFs</p>
+          <p>10% cash</p>
           <p>Low risk, steady returns. Ideal for beginners.</p>
           <p>Expected ROI: 5% per year</p>
         </div>
         <div className="plan">
           <h3>Plan B</h3>
+          <p>30% Apple, Microsoft, Johnson & Johnson</p>
+          <p>25% Tesla, Square</p>
+          <p>20% International Stocks (Developed and Emerging Markets)</p>
+          <p>15% Bond ETFs (Government and Investment-Grade Corporate Bonds)</p>
+          <p>10% Real Estate Investment Trusts (REITs)</p>
           <p>Moderate risk, balanced growth. Perfect for growing portfolios.</p>
           <p>Expected ROI: 10% per year</p>
         </div>
         <div className="plan">
           <h3>Plan C</h3>
+          <p>40% Growth Stocks (Tech, Biotechnology, Consumer Discretionary)</p>
+          <p>30% Small-Cap Stocks</p>
+          <p>15% International Stocks (Emerging Markets)</p>
+          <p>10% Sector-Specific ETFs (e.g., Technology, Healthcare)</p>
+          <p>5% Cryptocurrency or Alternative Assets (Optional)</p>
           <p>High risk, high reward. Best for experienced investors.</p>
           <p>Expected ROI: 20% per year</p>
         </div>
@@ -70,6 +85,6 @@ export default function Invest() {
           <button className="back-button">Back to Dashboard</button>
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

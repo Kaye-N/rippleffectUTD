@@ -8,7 +8,7 @@ const Transfer: React.FC = () => {
   const [recipient, setRecipient] = useState<string>("");
   const [amount, setAmount] = useState<number | string>("");
   const [message, setMessage] = useState<string>("");
-  const [transactions, setTransactions] = useState<any[]>([]); // State to hold transactions
+  const [transactions, setTransactions] = useState<any[]>([]);
 
   // Fetch transactions from the backend
   useEffect(() => {
@@ -39,7 +39,7 @@ const Transfer: React.FC = () => {
     }
 
     const transaction = {
-      user_id: recipient, // Using recipient as user_id for now
+      user_id: recipient,
       amount: Number(amount),
       description: message,
       date: new Date().toISOString().split("T")[0], // Current date
@@ -54,7 +54,7 @@ const Transfer: React.FC = () => {
 
       if (response.ok) {
         const newTransaction = await response.json();
-        setTransactions((prev) => [...prev, newTransaction]); // Update transactions list
+        setTransactions((prev) => [...prev, newTransaction]);
         alert(`Transfer to ${recipient} of $${amount} was successful!`);
         setRecipient("");
         setAmount("");
@@ -112,10 +112,11 @@ const Transfer: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
-            <button type="submit" className="transfer-button">
-              Transfer
-            </button>
+            <div className="button-group">
+              <button type="submit" className="transfer-button">Transfer</button>
+            </div>
           </form>
+
           <div className="back-link">
             <Link href="/">
               <button className="back-button">Back to Dashboard</button>

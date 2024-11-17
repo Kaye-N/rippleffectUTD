@@ -69,8 +69,8 @@ function AddBillModal({ isOpen, onClose, onAddBill }) {
 
 export default function PaymentPage() {
   const wallets = [
-    { name: "Savings Wallet", balance: 800 },
-    { name: "Main Wallet", balance: 500 },
+    { name: "Savings Account", balance: 800 },
+    { name: "Checking Account", balance: 500 },
   ];
   const [currentWalletIndex, setCurrentWalletIndex] = useState(0);
   const [recurringBills, setRecurringBills] = useState([
@@ -90,6 +90,7 @@ export default function PaymentPage() {
 
   return (
     <div className="payment-page">
+      
       {/* Top Banner */}
       <header className="banner">
         <h1>Welcome to Your Payment Dashboard</h1>
@@ -104,7 +105,7 @@ export default function PaymentPage() {
           {/* Wallet Section */}
           <div className="payment-page__wallet-section">
             <h2>Digital Wallet</h2>
-            <p>Selected Wallet: {wallets[currentWalletIndex].name}</p>
+            <p>{wallets[currentWalletIndex].name}</p>
             <h3>Balance: ${wallets[currentWalletIndex].balance.toFixed(2)}</h3>
             <button
               className="btn switch-wallet"
