@@ -135,3 +135,70 @@
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* Modal Styling */
+.transactions-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other elements */
+  max-width: 90%;
+  width: 600px;
+}
+
+.transactions-modal h2 {
+  margin-top: 0;
+  color: #00796b;
+}
+
+.transactions-list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0;
+  list-style-type: none;
+}
+
+.transaction-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transactions-modal .close-button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  float: right;
+}
+
+.transactions-modal .close-button:hover {
+  background: #c62828;
+}
+
+/* Overlay Background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* Ensure it covers the page */
+  display: none; /* Hidden by default */
+}
+
+.modal-overlay.active {
+  display: block;
+}

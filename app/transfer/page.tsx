@@ -129,8 +129,6 @@ const Transfer: React.FC = () => {
           </div>
         </div>
       </div >
-    </div >
-
 
       {/* Transactions Section */}
       <div className="transactions-section">
@@ -150,7 +148,7 @@ const Transfer: React.FC = () => {
           <p>No transactions found.</p>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 
