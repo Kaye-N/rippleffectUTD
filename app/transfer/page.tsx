@@ -8,7 +8,7 @@ const Transfer: React.FC = () => {
   const [recipient, setRecipient] = useState<string>("");
   const [amount, setAmount] = useState<number | string>("");
   const [message, setMessage] = useState<string>("");
-  const [transactions, setTransactions] = useState<any[]>([]); // State to hold transactions
+  const [transactions, setTransactions] = useState<any[]>([]);
 
   // Fetch transactions from the backend
   useEffect(() => {
@@ -39,7 +39,7 @@ const Transfer: React.FC = () => {
     }
 
     const transaction = {
-      user_id: recipient, // Using recipient as user_id for now
+      user_id: recipient,
       amount: Number(amount),
       description: message,
       date: new Date().toISOString().split("T")[0], // Current date
@@ -54,7 +54,7 @@ const Transfer: React.FC = () => {
 
       if (response.ok) {
         const newTransaction = await response.json();
-        setTransactions((prev) => [...prev, newTransaction]); // Update transactions list
+        setTransactions((prev) => [...prev, newTransaction]);
         alert(`Transfer to ${recipient} of $${amount} was successful!`);
         setRecipient("");
         setAmount("");
@@ -69,9 +69,7 @@ const Transfer: React.FC = () => {
   };
 
   return (
-
-    <div className="transfer-page">
-
+    <main className="transfer-page">
       {/* Banner Section */}
       <header className="banner">
         <h1>Transfer Funds</h1>
@@ -81,7 +79,6 @@ const Transfer: React.FC = () => {
       {/* Form Section */}
       <div className="content-background">
         <div className="center">
-
           <form className="transfer-form" onSubmit={handleTransfer}>
             <div className="form-group">
               <label htmlFor="recipient">Recipient</label>
@@ -115,17 +112,9 @@ const Transfer: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
-<<<<<<< HEAD
-
-            {/* Centered Button */}
             <div className="button-group">
               <button type="submit" className="transfer-button">Transfer</button>
             </div>
-=======
-            <button type="submit" className="transfer-button">
-              Transfer
-            </button>
->>>>>>> 84a9e89f216548e9c78a4f389470a34de2d5b737
           </form>
 
           <div className="back-link">
@@ -134,12 +123,7 @@ const Transfer: React.FC = () => {
             </Link>
           </div>
         </div>
-<<<<<<< HEAD
-      </div >
-    </div >
-=======
       </div>
->>>>>>> 84a9e89f216548e9c78a4f389470a34de2d5b737
 
       {/* Transactions Section */}
       <div className="transactions-section">
