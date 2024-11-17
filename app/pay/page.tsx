@@ -90,6 +90,7 @@ export default function PaymentPage() {
 
   return (
     <div className="payment-page">
+      
       {/* Top Banner */}
       <header className="banner">
         <h1>Welcome to Your Payment Dashboard</h1>

@@ -1,11 +1,3 @@
-/* General Styling */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #a7ffeb);
-  color: #333;
-}
-
 /* Game Container */
 .game-container {
   text-align: center;
