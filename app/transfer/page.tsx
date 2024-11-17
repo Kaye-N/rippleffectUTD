@@ -34,48 +34,51 @@ const Transfer: React.FC = () => {
 
       {/* Form Section */}
       <div className="content-background">
-        <form className="transfer-form" onSubmit={handleTransfer}>
-          <div className="form-group">
-            <label htmlFor="recipient">Recipient</label>
-            <input
-              type="text"
-              id="recipient"
-              placeholder="Enter recipient name or email"
-              value={recipient}
-              onChange={(e) => setRecipient(e.target.value)}
-              required
-            />
+
+        <div className="center">
+          <form className="transfer-form" onSubmit={handleTransfer}>
+            <div className="form-group">
+              <label htmlFor="recipient">Recipient</label>
+              <input
+                type="text"
+                id="recipient"
+                placeholder="Enter recipient name or email"
+                value={recipient}
+                onChange={(e) => setRecipient(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="amount">Amount</label>
+              <input
+                type="number"
+                id="amount"
+                placeholder="Enter amount to transfer"
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                required
+                min="1"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="message">Message (Optional)</label>
+              <textarea
+                id="message"
+                placeholder="Add a note to the recipient"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+            </div>
+            <button type="submit" className="transfer-button">Transfer</button>
+          </form>
+          <div className="back-link">
+            <Link href="/">
+              <button className="back-button">Back to Dashboard</button>
+            </Link>
           </div>
-          <div className="form-group">
-            <label htmlFor="amount">Amount</label>
-            <input
-              type="number"
-              id="amount"
-              placeholder="Enter amount to transfer"
-              value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-              required
-              min="1"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message (Optional)</label>
-            <textarea
-              id="message"
-              placeholder="Add a note to the recipient"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
-          </div>
-          <button type="submit" className="transfer-button">Transfer</button>
-        </form>
-        <div className="back-link">
-          <Link href="/">
-            <button className="back-button">Back to Dashboard</button>
-          </Link>
         </div>
-      </div>
-    </main>
+      </div >
+    </main >
 
   );
 };

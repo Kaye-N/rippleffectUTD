@@ -64,6 +64,23 @@ body {
   margin-bottom: 30px;
 }
 
+/* Centered Dashboard Box */
+.center {
+  display: flex;
+  flex-direction: column; /* Stack wallet, bills, and button vertically */
+  justify-content: center; /* Center content */
+  align-items: center; /* Center horizontally */
+  gap: 30px; /* Larger spacing for better visual hierarchy */
+  width: 90%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 12px; /* Softer rounded edges */
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Elevated card shadow */
+  box-sizing: border-box;
+}
+
+
 /* Form Styling */
 .transfer-form .form-group {
   margin-bottom: 20px;

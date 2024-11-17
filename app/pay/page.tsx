@@ -98,6 +98,7 @@ export default function PaymentPage() {
 
       {/* Background Container */}
       <div className="content-background">
+  
         {/* Centered Container */}
         <div className="payment-page__dashboard-box">
           {/* Wallet Section */}
