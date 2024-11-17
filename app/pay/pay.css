@@ -14,7 +14,7 @@
   background: #1d3557;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .banner h1 {
@@ -148,7 +148,6 @@
 
 /* Back Link Section */
 .payment-page__back-link {
-  margin-top: 20px;
   text-align: center;
   width: 100%;
 }

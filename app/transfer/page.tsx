@@ -25,7 +25,9 @@ const Transfer: React.FC = () => {
   };
 
   return (
-    <main className="transfer-page">
+
+    <div className="transfer-page">
+
       {/* Banner Section */}
       <header className="banner">
         <h1>Transfer Funds</h1>
@@ -78,7 +80,7 @@ const Transfer: React.FC = () => {
           </div>
         </div>
       </div >
-    </main >
+    </div >
 
   );
 };

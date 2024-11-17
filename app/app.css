@@ -17,6 +17,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    justify-content: center;
     min-height: 100vh; /* Ensure the box stretches to the full height of the viewport */
     background: linear-gradient(180deg, rgb(10, 150, 150), rgb(0, 150, 255));
     background-size: cover; /* Stretch the background image */
