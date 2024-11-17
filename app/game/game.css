@@ -148,9 +148,7 @@
 
 .reset-button:hover,
 .back-button:hover {
-  background: #263238;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #6bb4b6;
 }
 
 .reset-button:focus,
