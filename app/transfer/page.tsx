@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./transfer.css";
 import Link from "next/link";
 
@@ -8,8 +8,29 @@ const Transfer: React.FC = () => {
   const [recipient, setRecipient] = useState<string>("");
   const [amount, setAmount] = useState<number | string>("");
   const [message, setMessage] = useState<string>("");
+  const [transactions, setTransactions] = useState<any[]>([]); // State to hold transactions
 
-  const handleTransfer = (event: React.FormEvent<HTMLFormElement>) => {
+  // Fetch transactions from the backend
+  useEffect(() => {
+    async function fetchTransactions() {
+      try {
+        const response = await fetch("/api/transactions");
+        if (response.ok) {
+          const data = await response.json();
+          setTransactions(data);
+        } else {
+          console.error("Failed to fetch transactions");
+        }
+      } catch (error) {
+        console.error("Error fetching transactions:", error);
+      }
+    }
+
+    fetchTransactions();
+  }, []);
+
+  // Handle form submission and send data to the backend
+  const handleTransfer = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!recipient || !amount || Number(amount) <= 0) {
@@ -17,11 +38,34 @@ const Transfer: React.FC = () => {
       return;
     }
 
-    // Transfer logic can be added here
-    alert(`Transfer to ${recipient} of $${amount} was successful!`);
-    setRecipient("");
-    setAmount("");
-    setMessage("");
+    const transaction = {
+      user_id: recipient, // Using recipient as user_id for now
+      amount: Number(amount),
+      description: message,
+      date: new Date().toISOString().split("T")[0], // Current date
+    };
+
+    try {
+      const response = await fetch("/api/transactions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(transaction),
+      });
+
+      if (response.ok) {
+        const newTransaction = await response.json();
+        setTransactions((prev) => [...prev, newTransaction]); // Update transactions list
+        alert(`Transfer to ${recipient} of $${amount} was successful!`);
+        setRecipient("");
+        setAmount("");
+        setMessage("");
+      } else {
+        alert("Failed to process the transaction.");
+      }
+    } catch (error) {
+      console.error("Error processing transaction:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -36,7 +80,6 @@ const Transfer: React.FC = () => {
 
       {/* Form Section */}
       <div className="content-background">
-
         <div className="center">
 
           <form className="transfer-form" onSubmit={handleTransfer}>
@@ -72,11 +115,9 @@ const Transfer: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
-
-            {/* Centered Button */}
-            <div className="button-group">
-              <button type="submit" className="transfer-button">Transfer</button>
-            </div>
+            <button type="submit" className="transfer-button">
+              Transfer
+            </button>
           </form>
 
           <div className="back-link">
