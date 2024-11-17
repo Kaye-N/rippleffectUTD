@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import "./pay.css";
+import Link from "next/link";
+
 
 export default function PaymentPage() {
   const [walletBalance, setWalletBalance] = useState(800); // Example balance
@@ -64,6 +66,13 @@ export default function PaymentPage() {
           </button>
         </div>
       </div>
+
+      <div className="back-link">
+        <Link href="/">
+          <button className="back-button">Back to Dashboard</button>
+        </Link>
+      </div>
+
     </div>
   );
 }

@@ -3,17 +3,23 @@
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import "./home.css";
 import Link from "next/link";
+                                
 
 export default function Home() {
   const { signOut } = useAuthenticator((context) => [context.user]);
 
   return (
     <main>
+      
       <div className="container">
+
         <div className="content">
           <h1>Welcome to Lotus</h1>
-          <p>Smart savings made simple</p>
+          <p>Your Money. Your Future. Your Way.</p>
         </div>
+
+        <button className="sign-out" onClick={signOut}>Sign Out</button>
+
       </div>
 
       <div className="dashboard">
@@ -21,6 +27,12 @@ export default function Home() {
           <h2>Balance</h2>
           <p>$5,000.00</p>
           <p className="inspiration">"The best way to save money is to earn it."</p>
+        </div>
+      </div>
+
+      <div className="badget">
+        <div className="badget-box">
+          <h1>Badget</h1>
         </div>
       </div>
 
@@ -54,8 +66,6 @@ export default function Home() {
           </Link>
         </div>
       </div>
-
-      <button className="sign-out" onClick={signOut}>Sign Out</button>
 
     </main>
   );
