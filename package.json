@@ -14,8 +14,13 @@
     "chart.js": "^4.4.6",
     "next": "^14.2.17",
     "react": "^18",
+<<<<<<< HEAD
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18"
+=======
+    "react-dom": "^18",
+    "sqlite3": "^5.1.7"
+>>>>>>> 84a9e89f216548e9c78a4f389470a34de2d5b737
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.2.1",
