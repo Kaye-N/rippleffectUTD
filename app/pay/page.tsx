@@ -4,33 +4,88 @@ import React, { useState } from "react";
 import "./pay.css";
 import Link from "next/link";
 
+function RecurringBill({ name, amount }) {
+  return (
+    <li className="bill-item">
+      {name} - ${amount.toFixed(2)}
+    </li>
+  );
+}
+
+// Modal Component
+function AddBillModal({ isOpen, onClose, onAddBill }) {
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const handleAdd = () => {
+    if (!name || isNaN(amount)) {
+      alert("Please provide valid inputs.");
+      return;
+    }
+    onAddBill({ name: name.trim(), amount: parseFloat(amount) });
+    setName(""); // Reset form
+    setAmount("");
+    onClose(); // Close the modal
+  };
+
+  if (!isOpen) return null; // Don't render if modal is not open
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal">
+        <h2>Add New Recurring Bill</h2>
+        <div className="modal-content">
+          <label>
+            Name:
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter bill name"
+            />
+          </label>
+          <label>
+            Amount:
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Enter amount"
+            />
+          </label>
+          <div className="modal-actions">
+            <button className="btn cancel" onClick={onClose}>
+              Cancel
+            </button>
+            <button className="btn add" onClick={handleAdd}>
+              Add Bill
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function PaymentPage() {
-  const [walletBalance, setWalletBalance] = useState(800); // Example balance
-  const [selectedWallet, setSelectedWallet] = useState("Savings Wallet");
+  const wallets = [
+    { name: "Savings Wallet", balance: 800 },
+    { name: "Main Wallet", balance: 500 },
+  ];
+  const [currentWalletIndex, setCurrentWalletIndex] = useState(0);
   const [recurringBills, setRecurringBills] = useState([
     { name: "Netflix", amount: 15 },
     { name: "Spotify", amount: 10 },
     { name: "Electricity", amount: 50 },
   ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSwitchWallet = () => {
-    setSelectedWallet((prev) =>
-      prev === "Savings Wallet" ? "Main Wallet" : "Savings Wallet"
-    );
-    setWalletBalance((prev) => (prev === 800 ? 500 : 800)); // Example balances
+  const toggleWallet = () => {
+    setCurrentWalletIndex((prev) => (prev === 0 ? 1 : 0));
   };
 
-  const handleEditBills = () => {
-    const newBill = prompt("Add a new recurring bill (format: Name,Amount):");
-    if (newBill) {
-      const [name, amount] = newBill.split(",");
-      if (name && amount) {
-        setRecurringBills([...recurringBills, { name: name.trim(), amount: parseFloat(amount) }]);
-      } else {
-        alert("Invalid format. Please use: Name,Amount");
-      }
-    }
+  const handleAddBill = (newBill) => {
+    setRecurringBills((prev) => [...prev, newBill]);
   };
 
   return (
@@ -41,38 +96,59 @@ export default function PaymentPage() {
         <p>Manage your digital wallets, recurring bills, and more.</p>
       </header>
 
-      {/* Centered Container with Border */}
-      <div className="dashboard-box">
-        <div className="wallet-section">
-          <h2>Digital Wallet</h2>
-          <p>Selected Wallet: {selectedWallet}</p>
-          <h3>Balance: ${walletBalance.toFixed(2)}</h3>
-          <button className="btn switch-wallet" onClick={handleSwitchWallet}>
-            Switch Wallet
-          </button>
-        </div>
+      {/* Background Container */}
+      <div className="content-background">
+        {/* Centered Container */}
+        <div className="payment-page__dashboard-box">
+          {/* Wallet Section */}
+          <div className="payment-page__wallet-section">
+            <h2>Digital Wallet</h2>
+            <p>Selected Wallet: {wallets[currentWalletIndex].name}</p>
+            <h3>Balance: ${wallets[currentWalletIndex].balance.toFixed(2)}</h3>
+            <button
+              className="btn switch-wallet"
+              onClick={toggleWallet}
+              aria-label="Switch between wallets"
+            >
+              Switch Wallet
+            </button>
+          </div>
 
-        <div className="recurring-bills-section">
-          <h2>Recurring Bills</h2>
-          <ul>
-            {recurringBills.map((bill, index) => (
-              <li key={index}>
-                {bill.name} - ${bill.amount.toFixed(2)}
-              </li>
-            ))}
-          </ul>
-          <button className="btn edit-bills" onClick={handleEditBills}>
-            Edit Recurring Bills
-          </button>
+          {/* Recurring Bills Section */}
+          <div className="payment-page__recurring-bills">
+            <h2>Recurring Bills</h2>
+            {recurringBills.length === 0 ? (
+              <p>No recurring bills added yet.</p>
+            ) : (
+              <ul>
+                {recurringBills.map((bill, index) => (
+                  <RecurringBill key={index} name={bill.name} amount={bill.amount} />
+                ))}
+              </ul>
+            )}
+            <button
+              className="btn edit-bills"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Add Recurring Bill
+            </button>
+          </div>
+
+          {/* Back to Dashboard Button */}
+          <div className="payment-page__back-link">
+            <Link href="/">
+              <button className="btn back-button">Back to Dashboard</button>
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="back-link">
-        <Link href="/">
-          <button className="back-button">Back to Dashboard</button>
-        </Link>
-      </div>
-
+      {/* Add Bill Modal */}
+      <AddBillModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAddBill={handleAddBill}
+      />
     </div>
   );
 }

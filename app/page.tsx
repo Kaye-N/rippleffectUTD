@@ -17,9 +17,11 @@ const client = generateClient<Schema>();
 
 export default function App() {
   return (
-    <Authenticator className="body">
-      {({ signOut, user }) => <Home />}
-    </Authenticator>
+    <div className="box">
+      <Authenticator>
+        {({ signOut, user }) => <Home />}
+      </Authenticator>
+    </div>
   );
 }
 

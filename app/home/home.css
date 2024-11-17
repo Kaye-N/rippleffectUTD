@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Concert+One&family=Tilt+Neon&display=swap');
+@import url('https://fonts.cdnfonts.com/css/goldman-sans');
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Concert One', sans-serif;
+  font-family: 'Goldman Sans', sans-serif;
 }
 
 body {
@@ -13,179 +13,196 @@ body {
   background: linear-gradient(180deg, rgb(81, 194, 134), rgb(255, 255, 255));
 }
 
-  .container {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 30vh;
-    /* background-image: linear-gradient(
+.container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 30vh;
+  /* background-image: linear-gradient(
         rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.3)
       ),
       url("/img.jpg"); */
-    background-image: url("/img.jpg");
-    background-size: 100% auto; /* Stretch the image sideways (120% of its original width) */
-    background-position: center calc(65%); /* Keeps the vertical adjustment */
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding-left: 20px;
-    color: white;
-  }
+  background-image: url("/img.jpg");
+  background-size: 100% auto;
+  /* Stretch the image sideways (120% of its original width) */
+  background-position: center calc(65%);
+  /* Keeps the vertical adjustment */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 20px;
+  color: white;
+}
 
-  .content {
-    text-align: left;
-  }
+.content {
+  text-align: left;
+}
 
-  .content h1 {
-    font-size: 3em; /* Adjust size for responsiveness */
-    margin: 0;
-  }
+.content h1 {
+  font-size: 3em;
+  /* Adjust size for responsiveness */
+  margin: 0;
+}
 
-  .content p {
-    font-size: 1em;
-    margin: 0;
-    text-align: center;
-  }
+.content p {
+  font-size: 1em;
+  margin: 0;
+  text-align: center;
+}
 
-  .dashboard {
-    margin: 20px;
-    padding: 20px;
-    /* background: red; */
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.1)
-    ),
+.sign-out {
+  margin-left: auto;
+  /* Pushes the button to the right */
+  margin-right: 20px;
+  padding: 10px 20px;
+  background: #e26667;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-out:hover {
+  background: #cc0000;
+}
+
+.dashboard {
+  margin: 20px;
+  padding: 20px;
+  /* background: red; */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)),
     url("/img2.png");
-    /* background-image: url(/img2.png); */
-    background-size: 105% auto; /* Stretches horizontally across the width */
-    background-position: center calc(60%); /* Keeps the vertical adjustment */
-    background-repeat: no-repeat; 
+  /* background-image: url(/img2.png); */
+  background-size: 105% auto;
+  /* Stretches horizontally across the width */
+  background-position: center calc(60%);
+  /* Keeps the vertical adjustment */
+  background-repeat: no-repeat;
+}
+
+.balance-box {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.balance-box h2 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.balance-box p {
+  margin: 5px 0;
+}
+
+/* @keyframes pulseLoop {
+
+  0%,
+  100% {
+    transform: scale(1);
   }
 
-  .balance-box {
-    text-align: center;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  50% {
+    transform: scale(1.1);
   }
+} */
 
-  .balance-box h2 {
-    font-size: 2.5em;
-    margin: 0;
-  }
+.inspiration {
+  font-style: italic;
+  font-size: 1.5em;
+  animation: pulseLoop 1.5s infinite ease-in-out;
+}
 
-  .balance-box p {
-    margin: 5px 0;
-  }
+.badget {
+  margin: 20px;
+  padding: 75px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #F7CE79;
+  background-size: 105% auto;
+  background-position: center calc(60%);
+  background-repeat: no-repeat;
+}
 
-  @keyframes pulseLoop {
-    0%, 100% {
-      transform: scale(1); /* Original size */
-    }
-    50% {
-      transform: scale(1.1); /* Slightly bigger */
-    }
-  }
+.badget-box {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
-  .inspiration {
-    font-style: italic;
-    font-size: 1.5em;
-    animation: pulseLoop 1.5s infinite ease-in-out;
-  }
+.actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  .badget {
-    margin: 20px;
-    padding: 75px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    /* background-image: linear-gradient(
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.1)
-    ),
-    url("/img2.png"); */
-    /* background-image: url(/img2.png); */
-    background-color: green;
-    background-size: 105% auto; /* Stretches horizontally across the width */
-    background-position: center calc(60%); /* Keeps the vertical adjustment */
-    background-repeat: no-repeat; 
-  }
+.action-box {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: space-between; /* Push button to the bottom */
+  align-items: stretch; /* Ensure full-width child elements */
+  width: 100%; /* Full width of the grid column */
+  height: 200px; /* Fixed height */
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
 
-  .badget-box {
-    text-align: center;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
+.action-box p {
+  font-size: 2em;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
 
-  .actions {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
-    height: 100%; /* Height adjusts based on content */
-    width: 100%; /* Full width of the viewport */
-    gap: 10px; /* Adds spacing between the boxes */
-    padding: 10px; /* Adds padding around the grid */
-    box-sizing: border-box;
-  }
+.action-box button {
+  margin-top: auto; /* Pushes the button to the bottom */
+  width: 100%; /* Ensures the button spans the full width */
+  padding: 15px 0; /* Adjust padding for proper height */
+  font-size: 1.2em; /* Larger text for better visibility */
+  color: white; /* Text color */
+  background: #54DDE8; 
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
 
-  .action-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 10px; /* Rounded corners */
-    font-size: 1em;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds shadow for box depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.action-box button:hover {
+  background: #45c3cc; /* Slightly darker hover color */
+  transform: scale(1.02); /* Subtle hover zoom */
+}
 
-  .action-box:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-  }
+.action-box:nth-child(1) {
+  background-color: #163950;
+}
 
-  .action-box p {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #333; /* Text color */
-  }
+.action-box:nth-child(2) {
+  background-color: #163950;
+}
 
-  .action-box button {
-    padding: 10px 15px;
-    font-size: 1em;
-    color: white;
-    background: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+.action-box:nth-child(3) {
+  background-color: #163950;
+}
 
-  .action-box button:hover {
-    background: #0056b3;
-  }
-
-  .sign-out {
-    margin-left: auto; /* Pushes the button to the right */
-    margin-right: 20px;
-    padding: 10px 20px;
-    background: #e26667;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .sign-out:hover {
-    background: #cc0000;
-  }
+.action-box:nth-child(4) {
+  background-color: #163950;
+}

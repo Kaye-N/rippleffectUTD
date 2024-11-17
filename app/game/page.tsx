@@ -8,6 +8,7 @@ export default function Game() {
   const [points, setPoints] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [cryptoCount, setCryptoCount] = useState(0);
+  const [feedback, setFeedback] = useState("");
 
   const questions = [
     {
@@ -39,6 +40,7 @@ export default function Game() {
 
   const handleAnswer = (index) => {
     if (index === questions[questionIndex].correct) {
+      setFeedback("Correct!");
       const newPoints = points + 5;
       setPoints(newPoints);
 
@@ -46,18 +48,35 @@ export default function Game() {
         setCryptoCount(cryptoCount + 1);
         setPoints(0); // Reset points after earning a crypto
       }
+    } else {
+      setFeedback("Wrong! Try Again.");
     }
 
     // Move to the next question or restart the game
-    if (questionIndex < questions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
-    } else {
-      setQuestionIndex(0); // Restart the game
-    }
+    setTimeout(() => {
+      setFeedback("");
+      if (questionIndex < questions.length - 1) {
+        setQuestionIndex(questionIndex + 1);
+      } else {
+        setQuestionIndex(0); // Restart the game
+      }
+    }, 1000);
+  };
+
+  const resetGame = () => {
+    setPoints(0);
+    setQuestionIndex(0);
+    setCryptoCount(0);
+    setFeedback("");
   };
 
   return (
     <main className="game-container">
+      <header className="banner">
+        <h1>Investment Options</h1>
+        <p>Grow your wealth with our tailored investment plans.</p>
+      </header>
+
       <div className="score">
         <h2>Your Points: {points}</h2>
         <h2>Crypto Earned: {cryptoCount}</h2>
@@ -71,14 +90,19 @@ export default function Game() {
               key={idx}
               onClick={() => handleAnswer(idx)}
               className="option-button"
+              aria-live="polite"
             >
               {option}
             </button>
           ))}
         </div>
+        {feedback && <p className={`feedback ${feedback === "Correct!" ? "correct" : "wrong"}`}>{feedback}</p>}
       </div>
 
-      <div className="back-link">
+      <div className="controls">
+        <button onClick={resetGame} className="reset-button">
+          Reset Game
+        </button>
         <Link href="/">
           <button className="back-button">Back to Dashboard</button>
         </Link>

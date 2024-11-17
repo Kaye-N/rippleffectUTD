@@ -12,12 +12,10 @@ export default function Invest() {
 
   return (
     <main>
-      <div className="container">
-        <div className="content">
-          <h1>Investment Options</h1>
-          <p>Grow your wealth with our tailored investment plans.</p>
-        </div>
-      </div>
+      <header className="banner">
+        <h1>Investment Options</h1>
+        <p>Grow your wealth with our tailored investment plans.</p>
+      </header>
 
       <div className="investment-options">
         <div className="plan">

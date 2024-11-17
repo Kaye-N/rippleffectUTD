@@ -1,71 +1,94 @@
 "use client";
 
-import "./transfer.css"; // Add specific styles for the transfer page if needed
+import React, { useState } from "react";
+import "./transfer.css";
 import Link from "next/link";
 
-export default function Transfer() {
+const Transfer: React.FC = () => {
+  const [recipient, setRecipient] = useState<string>("");
+  const [amount, setAmount] = useState<number | string>("");
+  const [message, setMessage] = useState<string>("");
 
-  const handleTransfer = (event) => {
+  const handleTransfer = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Logic for handling transfer
-    alert("Transfer Successful!");
+
+    if (!recipient || !amount || Number(amount) <= 0) {
+      alert("Please provide valid recipient and amount.");
+      return;
+    }
+
+    // Transfer logic can be added here
+    alert(`Transfer to ${recipient} of $${amount} was successful!`);
+    setRecipient("");
+    setAmount("");
+    setMessage("");
   };
 
   return (
-    <main>
-      <div className="container">
-        <div className="content">
-          <h1>Transfer Funds</h1>
-          <p>Securely transfer money to anyone, anywhere.</p>
+    <main className="transfer-page">
+      {/* Top Banner */}
+      <header className="banner">
+        <h1>Transfer Funds</h1>
+        <p>Securely transfer money to anyone, anywhere.</p>
+      </header>
+
+      {/* Transfer Form Section */}
+      <div className="content-background">
+        <div className="transfer-form">
+          <form onSubmit={handleTransfer}>
+            <div className="form-group">
+              <label htmlFor="recipient">Recipient</label>
+              <input
+                type="text"
+                id="recipient"
+                name="recipient"
+                placeholder="Enter recipient name or email"
+                value={recipient}
+                onChange={(e) => setRecipient(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="amount">Amount</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="Enter amount to transfer"
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                required
+                min="1"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message (Optional)</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Add a note to the recipient"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              ></textarea>
+            </div>
+
+            <button type="submit" className="transfer-button">
+              Transfer
+            </button>
+          </form>
         </div>
 
-      </div>
-
-      <div className="transfer-form">
-        <form onSubmit={handleTransfer}>
-          <div className="form-group">
-            <label htmlFor="recipient">Recipient</label>
-            <input
-              type="text"
-              id="recipient"
-              name="recipient"
-              placeholder="Enter recipient name or email"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="amount">Amount</label>
-            <input
-              type="number"
-              id="amount"
-              name="amount"
-              placeholder="Enter amount to transfer"
-              required
-              min="1"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message (Optional)</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Add a note to the recipient"
-            ></textarea>
-          </div>
-
-          <button type="submit" className="transfer-button">
-            Transfer
-          </button>
-        </form>
-      </div>
-
-      <div className="back-link">
-        <Link href="/">
-          <button className="back-button">Back to Dashboard</button>
-        </Link>
+        {/* Back to Dashboard Button */}
+        <div className="back-link">
+          <Link href="/">
+            <button className="back-button">Back to Dashboard</button>
+          </Link>
+        </div>
       </div>
     </main>
   );
-}
+};
+
+export default Transfer;

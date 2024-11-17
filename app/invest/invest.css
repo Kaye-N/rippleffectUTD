@@ -1,3 +1,23 @@
+/* Banner Section */
+.banner {
+  width: 100%;
+  text-align: center;
+  background: #163950;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.banner p {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
 /* Container Section */
 .container {
     text-align: center;

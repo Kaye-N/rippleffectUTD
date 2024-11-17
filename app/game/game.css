@@ -1,7 +1,29 @@
+/* Banner Section */
+.banner {
+  width: 100%;
+  text-align: center;
+  background: #163950;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.banner p {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
 /* General Styling */
 .game-container {
   text-align: center;
   padding: 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
 .score {
@@ -51,13 +73,27 @@
   transform: scale(1.05);
 }
 
-/* Back to Dashboard Link */
-.back-link {
-  margin-top: 20px;
-  text-align: center;
+/* Feedback Styling */
+.feedback {
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
-.back-link .back-button {
+.feedback.correct {
+  color: green;
+}
+
+.feedback.wrong {
+  color: red;
+}
+
+/* Controls */
+.controls {
+  margin-top: 20px;
+}
+
+.reset-button,
+.back-button {
   background-color: #6c757d;
   color: white;
   padding: 10px 20px;
@@ -66,8 +102,28 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 0 10px;
 }
 
-.back-link .back-button:hover {
+.reset-button:hover,
+.back-button:hover {
   background-color: #5a6268;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .question-box {
+    padding: 15px;
+  }
+
+  .option-button {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  .reset-button,
+  .back-button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
 }

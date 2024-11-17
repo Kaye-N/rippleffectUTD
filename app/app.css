@@ -4,12 +4,6 @@
   margin: 0;
 }
 
-.body {
-  height: 100vh; /* Ensure it takes the full viewport height */
-  margin: 0;
-  background: linear-gradient(180deg, rgb(81, 194, 134), rgb(255, 255, 255));
-  display: flex;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+.box {
+  
 }

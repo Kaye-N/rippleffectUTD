@@ -32,7 +32,7 @@ export default function Home() {
 
       <div className="badget">
         <div className="badget-box">
-          <h1>Badget</h1>
+          <h1>Budget</h1>
         </div>
       </div>
 
