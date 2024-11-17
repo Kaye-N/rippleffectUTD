@@ -1,0 +1,208 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #d4f1f4, #75e6da);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Transfer Page */
+.transfer-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Banner Section */
+.banner {
+  width: 100%;
+  text-align: center;
+  background: #00796b; /* Dark teal background */
+  color: white;
+  padding: 40px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* Form Container */
+.content-background {
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+/* Centered Dashboard Box */
+.center {
+  display: flex;
+  flex-direction: column; /* Stack wallet, bills, and button vertically */
+  justify-content: center; /* Center content */
+  align-items: center; /* Center horizontally */
+  gap: 30px; /* Larger spacing for better visual hierarchy */
+  width: 90%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 12px; /* Softer rounded edges */
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Elevated card shadow */
+  box-sizing: border-box;
+}
+
+
+/* Form Styling */
+.transfer-form .form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.transfer-form label {
+  font-size: 1rem;
+  color: #00796b;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: bold;
+}
+
+.transfer-form input,
+.transfer-form textarea {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.transfer-form input:focus,
+.transfer-form textarea:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.transfer-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+/* Buttons */
+.transfer-button {
+  width: 100%;
+  background: #00796b;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.transfer-button:hover {
+  background: #004d40;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-button {
+  background: #06d6a0;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #04b78a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 2.2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+
+  .content-background {
+    padding: 20px;
+  }
+
+  .transfer-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .back-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner p {
+    font-size: 0.9rem;
+  }
+
+  .transfer-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .transfer-form textarea {
+    height: 100px;
+  }
+
+  .transfer-button {
+    font-size: 0.9rem;
+  }
+}

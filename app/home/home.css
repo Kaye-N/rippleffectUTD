@@ -1,0 +1,208 @@
+@import url('https://fonts.cdnfonts.com/css/goldman-sans');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Goldman Sans', sans-serif;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background: linear-gradient(180deg, rgb(81, 194, 134), rgb(255, 255, 255));
+}
+
+.container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 30vh;
+  /* background-image: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url("/img.jpg"); */
+  background-image: url("/img.jpg");
+  background-size: 100% auto;
+  /* Stretch the image sideways (120% of its original width) */
+  background-position: center calc(65%);
+  /* Keeps the vertical adjustment */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 20px;
+  color: white;
+}
+
+.content {
+  text-align: left;
+}
+
+.content h1 {
+  font-size: 3em;
+  /* Adjust size for responsiveness */
+  margin: 0;
+}
+
+.content p {
+  font-size: 1em;
+  margin: 0;
+  text-align: center;
+}
+
+.sign-out {
+  margin-left: auto;
+  /* Pushes the button to the right */
+  margin-right: 20px;
+  padding: 10px 20px;
+  background: #e26667;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-out:hover {
+  background: #cc0000;
+}
+
+.dashboard {
+  margin: 20px;
+  padding: 20px;
+  /* background: red; */
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)),
+    url("/img2.png");
+  /* background-image: url(/img2.png); */
+  background-size: 105% auto;
+  /* Stretches horizontally across the width */
+  background-position: center calc(60%);
+  /* Keeps the vertical adjustment */
+  background-repeat: no-repeat;
+}
+
+.balance-box {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.balance-box h2 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.balance-box p {
+  margin: 5px 0;
+}
+
+/* @keyframes pulseLoop {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+} */
+
+.inspiration {
+  font-style: italic;
+  font-size: 1.5em;
+  animation: pulseLoop 1.5s infinite ease-in-out;
+}
+
+.badget {
+  margin: 20px;
+  padding: 75px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #F7CE79;
+  background-size: 105% auto;
+  background-position: center calc(60%);
+  background-repeat: no-repeat;
+}
+
+.badget-box {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.action-box {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: space-between; /* Push button to the bottom */
+  align-items: stretch; /* Ensure full-width child elements */
+  width: 100%; /* Full width of the grid column */
+  height: 200px; /* Fixed height */
+  background-size: cover;
+  background-position: center;
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.action-box p {
+  font-size: 2em;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
+.action-box button {
+  margin-top: auto; /* Pushes the button to the bottom */
+  width: 100%; /* Ensures the button spans the full width */
+  padding: 15px 0; /* Adjust padding for proper height */
+  font-size: 1.2em; /* Larger text for better visibility */
+  color: white; /* Text color */
+  background: #54DDE8; 
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth hover effect */
+}
+
+.action-box button:hover {
+  background: #45c3cc; /* Slightly darker hover color */
+  transform: scale(1.02); /* Subtle hover zoom */
+}
+
+.action-box:nth-child(1) {
+  background-color: #163950;
+}
+
+.action-box:nth-child(2) {
+  background-color: #163950;
+}
+
+.action-box:nth-child(3) {
+  background-color: #163950;
+}
+
+.action-box:nth-child(4) {
+  background-color: #163950;
+}

@@ -1,0 +1,330 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #f0f2f5; /* Light gray background for modern look */
+}
+
+/* Payment Page Container */
+.payment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Banner Section */
+.banner {
+  width: 100%;
+  text-align: center;
+  background: #1d3557; /* Dark blue for better contrast */
+  color: white;
+  padding: 30px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Rounded edges */
+  margin-bottom: 20px;
+}
+
+.banner h1 {
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.banner p {
+  margin-top: 10px;
+  font-size: 1.2em;
+  opacity: 0.8; /* Subdued text for secondary information */
+}
+
+/* Content Background */
+.content-background {
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: calc(100vh - 200px); /* Ensure height adjusts dynamically */
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(29, 53, 87, 0.5), rgba(241, 250, 238, 0.8)), 
+              url("/hackutd.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+/* Centered Dashboard Box */
+.payment-page__dashboard-box {
+  display: flex;
+  flex-direction: column; /* Stack wallet, bills, and button vertically */
+  justify-content: center; /* Center content */
+  align-items: center; /* Center horizontally */
+  gap: 30px; /* Larger spacing for better visual hierarchy */
+  width: 90%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 12px; /* Softer rounded edges */
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Elevated card shadow */
+  box-sizing: border-box;
+}
+
+/* Wallet Section */
+.payment-page__wallet-section {
+  text-align: center;
+  padding-bottom: 20px;
+  width: 100%;
+  border-bottom: 2px dashed #d9e2ec; /* Subtle dashed separator */
+}
+
+.payment-page__wallet-section h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #1d3557;
+}
+
+.payment-page__wallet-section h3 {
+  font-size: 1.5em;
+  color: #06d6a0; /* Bright green for wallet balance */
+  margin: 10px 0;
+}
+
+/* Recurring Bills Section */
+.payment-page__recurring-bills {
+  text-align: center;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.payment-page__recurring-bills h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #1d3557;
+}
+
+.payment-page__recurring-bills ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.bill-item {
+  background: #f7fafc; /* Subtle light gray background for bills */
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for elevation */
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 25px;
+  font-size: 1em;
+  color: white;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Elevated shadow on hover */
+}
+
+.switch-wallet {
+  margin-top: 15px;
+}
+
+.edit-bills {
+  margin-top: 10px;
+  background: #f4a261; /* Warm orange for add bills button */
+}
+
+.edit-bills:hover {
+  background: #e76f51; /* Darker orange on hover */
+}
+
+/* Back Link Section */
+.payment-page__back-link {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.back-button {
+  padding: 12px 25px;
+  font-size: 1em;
+  color: white;
+  background: #06d6a0; /* Bright green for positive action */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background: #04b78a;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .payment-page__dashboard-box {
+    gap: 20px; /* Adjust spacing for smaller screens */
+    padding: 20px;
+  }
+
+  .payment-page__wallet-section h2,
+  .payment-page__recurring-bills h2 {
+    font-size: 1.8em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner h1 {
+    font-size: 2em;
+  }
+
+  .payment-page__dashboard-box {
+    gap: 15px;
+  }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the modal is on top */
+}
+
+/* Modal Box */
+.modal {
+  background: white; /* Clean white background */
+  border-radius: 12px; /* Rounded corners */
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Elevated shadow */
+  text-align: center;
+  z-index: 1001; /* Ensure it's above the overlay */
+  animation: fadeIn 0.3s ease-in-out; /* Subtle fade-in effect */
+}
+
+/* Modal Header */
+.modal h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #1d3557; /* Dark blue for headings */
+  font-weight: bold;
+}
+
+/* Modal Content */
+.modal-content label {
+  display: block;
+  margin: 15px 0 10px;
+  font-size: 1em;
+  color: #333; /* Dark text color for readability */
+  text-align: left; /* Align labels to the left */
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  font-size: 1em;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners for inputs */
+  background: #f9f9f9; /* Subtle light background for inputs */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inset shadow */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlighted glow */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Modal Actions (Buttons) */
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Add spacing between buttons */
+}
+
+.modal-actions .btn {
+  flex: 1; /* Equal button widths */
+  padding: 12px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-actions .btn.cancel {
+  background: #e0e0e0; /* Neutral gray background */
+  color: #333; /* Dark text for cancel */
+}
+
+.modal-actions .btn.cancel:hover {
+  background: #c0c0c0; /* Darker gray on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+.modal-actions .btn.add {
+  background: #007bff; /* Blue for primary action */
+  color: white;
+}
+
+.modal-actions .btn.add:hover {
+  background: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
