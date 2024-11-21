@@ -148,19 +148,13 @@
 
 .reset-button:hover,
 .back-button:hover {
-<<<<<<< HEAD
-  background: #263238;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-=======
   background-color: #6bb4b6;
->>>>>>> 84a9e89f216548e9c78a4f389470a34de2d5b737
 }
 
 .reset-button:focus,
 .back-button:focus {
   outline: none;
-  border: 2px solid #90a4ae;
+  border: 2.1px solid #90a4ae;
 }
 
 /* Responsive Design */
